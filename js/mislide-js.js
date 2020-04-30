@@ -38,7 +38,7 @@ function inicia(){
 		caja.setAttribute("class","slideSiguiente");
 		caja.style.zIndex= 0;
 		caja.appendChild(contenido);
-		if(w < 500){
+		if(w < 676){
 			caja.style.width = (w/2-mrgIzq-2) + "px";
 			console.log((w/2-mrgIzq) + "px")
 		}
@@ -48,7 +48,7 @@ function inicia(){
 		cajaI.setAttribute("class","slideAnterior");
 		cajaI.style.zIndex= 0;
 		cajaI.appendChild(contenidoI);
-		if(w < 500){
+		if(w < 676){
 			cajaI.style.width = (w/2-mrgDch-2) + "px";
 			console.log((w/2-mrgDch) + "px")
 		}
