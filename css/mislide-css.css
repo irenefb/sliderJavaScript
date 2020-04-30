@@ -97,6 +97,8 @@ body{ min-width: 300px;}
  }
 @media screen and (max-width: 500px) {
 	.flechas{opacity: .8}
+	.flechas#izq .imgFle{border-right:1px solid #adadad;}
+	.flechas#dch .imgFle{border-left:1px solid #adadad;}
 	.flechas ul li .img{display: none}
 	.flechas ul li .txt{width: 100%; margin:0;padding: 0 4px}
 	.flechas ul li .txt h2{text-overflow: ellipsis;overflow: hidden;white-space: nowrap;font-size: 16px }
@@ -104,8 +106,6 @@ body{ min-width: 300px;}
 	.flechas ul li .txt p{display: none;}
 	.slideAnterior{margin:0 2px 0 0;padding: 2px;height: 40px}
 	.slideSiguiente{margin:0 0 0 2px;padding: 2px;height: 40px}
-	.slideAnterior .txt{border-left:1px solid #adadad;}
-	.slideSiguiente .txt{border-right:1px solid #adadad;}
 	.miSlider .flechas{height: 40px}
 	.miSlider .flechas .flecha {padding: 8px;}
 	.miSlider .diapos li .txt h2 {font-size: 24px;}
