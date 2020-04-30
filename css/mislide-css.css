@@ -91,17 +91,23 @@ body{ min-width: 300px;}
 	.miSlider .flechas{bottom: 2px;top: auto}
 
 }
+
 @media screen and (max-width: 812px) and (max-height: 400px) { 
 	.miSlider .diapos li .txt{margin-bottom: 100px}
 	.flechas ul li .txt h2{text-overflow: ellipsis;overflow: hidden;white-space: nowrap; }
  }
+@media screen and (max-width: 676px) {
+	.flechas ul li .txt h2{text-overflow: ellipsis;overflow: hidden;white-space: nowrap;}
+	.flechas ul li .txt p{display: -webkit-box;-webkit-line-clamp: 2;-webkit-box-orient: vertical;overflow: hidden;}
+}
+
 @media screen and (max-width: 500px) {
 	.flechas{opacity: .8}
 	.flechas#izq .imgFle{border-right:1px solid #adadad;}
 	.flechas#dch .imgFle{border-left:1px solid #adadad;}
 	.flechas ul li .img{display: none}
 	.flechas ul li .txt{width: 100%; margin:0;padding: 0 4px}
-	.flechas ul li .txt h2{text-overflow: ellipsis;overflow: hidden;white-space: nowrap;font-size: 16px }
+	.flechas ul li .txt h2{font-size: 14px }
 	.flechas ul li .txt .linea{display: none}
 	.flechas ul li .txt p{display: none;}
 	.slideAnterior{margin:0 2px 0 0;padding: 2px;height: 40px}
