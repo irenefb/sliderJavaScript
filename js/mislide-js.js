@@ -10,8 +10,6 @@ var slidesA = Array.prototype.slice.call(slides, 0);
 slidesA.reverse();
 var slidesN = slidesA.length;
 
-
-
 //ver el siguiente slide
 var caja = document.createElement("UL");
 var contenidoIntermedio = slidesA.slice((slidesN-2),(slidesN-1));
@@ -33,33 +31,29 @@ function inicia(){
 	})
 
 	
-		//ver el siguiente slide
-		dch.appendChild(caja);
-		caja.setAttribute("class","slideSiguiente");
-		caja.style.zIndex= 0;
-		caja.appendChild(contenido);
-		if(w < 500){
+	//ver el siguiente slide
+	dch.appendChild(caja);
+	caja.setAttribute("class","slideSiguiente");
+	caja.style.zIndex= 0;
+	caja.appendChild(contenido);
+	if(w < 676){
 			caja.style.width = (w/2-mrgIzq-2) + "px";
-			console.log((w/2-mrgIzq) + "px")
 		}
+	
 
-		//ver el slide anterior
-		izq.appendChild(cajaI);
-		cajaI.setAttribute("class","slideAnterior");
-		cajaI.style.zIndex= 0;
-		cajaI.appendChild(contenidoI);
-		if(w < 500){
+	//ver el slide anterior
+	izq.appendChild(cajaI);
+	cajaI.setAttribute("class","slideAnterior");
+	cajaI.style.zIndex= 0;
+	cajaI.appendChild(contenidoI);
+	if(w < 676){
 			cajaI.style.width = (w/2-mrgDch-2) + "px";
-			console.log((w/2-mrgDch) + "px")
-		}
-	
-
-
-	
-
+		}	
 }
 
 inicia();
+
+
 
 //flecha derecha
 function avanza(){
@@ -73,9 +67,6 @@ function avanza(){
 		//slider anterior
 		var liI = document.querySelector(".slideAnterior li");
 		liI.classList.add("saleIzqI");
-
-
-
 
 	setTimeout(function(){
 
@@ -166,12 +157,12 @@ izq.addEventListener("click", retrocede)
 
 
 
-
 //mostrar próximo slide
 function mostrarAvanza(){
 	caja.classList.add("mostrar");
 	document.querySelector(".slideSiguiente").style.right = mrgDch + "px";
 }
+
 if(w > 1024){
 	dch.addEventListener("mouseenter", mostrarAvanza);
 }else{
@@ -180,30 +171,50 @@ if(w > 1024){
 }
 
 
-	function ocultarAvanza(){
-		caja.classList.remove("mostrar");
-		document.querySelector(".slideSiguiente").style.right =  "0px";
-	}
+
+function ocultarAvanza(){
+	caja.classList.remove("mostrar");
+	document.querySelector(".slideSiguiente").style.right =  "0px";
+}
+
 if(w > 1024){
 	dch.addEventListener("mouseleave",ocultarAvanza);
 }
 
 	//mostrar el slide anterior
-	function mostrarAtras(){
-		cajaI.classList.add("mostrar");
-		document.querySelector(".slideAnterior").style.left = mrgIzq + "px";
-	}
+function mostrarAtras(){
+	cajaI.classList.add("mostrar");
+	document.querySelector(".slideAnterior").style.left = mrgIzq + "px";
+}
 if(w > 1024){
 	izq.addEventListener("mouseenter", mostrarAtras);
 }else{
 	mostrarAtras();
 }
 
-	function ocultarAtras(){
-		cajaI.classList.remove("mostrar");
-		document.querySelector(".slideAnterior").style.left =  "0px";
-	}
+function ocultarAtras(){
+	cajaI.classList.remove("mostrar");
+	document.querySelector(".slideAnterior").style.left =  "0px";
+}
 if(w > 1024){
 	izq.addEventListener("mouseleave",ocultarAtras);
 }
 
+
+//cambio de tamaño de pantalla
+window.onresize = function(){
+	var w = window.innerWidth;
+	if(w > 1024){
+		console.log("holi")
+		ocultarAvanza()
+		ocultarAtras()
+	}else{
+		mostrarAtras();
+		mostrarAvanza();
+	}
+	if(w < 676){
+		caja.style.width = (w/2-mrgIzq-2) + "px";
+		cajaI.style.width = (w/2-mrgDch-2) + "px";
+	}
+
+}
